@@ -38,7 +38,10 @@ module VagrantPlugins
 
           @logger.info("Connecting to AWS...")
           env[:aws_compute] = Fog::Compute.new(fog_config)
-          env[:aws_elb]     = Fog::AWS::ELB.new(fog_config.except(:provider, :endpoint))
+          limited_fog = fog_config.dup
+          limited_fog.delete(:provider)
+          limited_fog.delete(:endpoint)
+          env[:aws_elb]     = Fog::AWS::ELB.new(limited_fog)
 
           @app.call(env)
         end
