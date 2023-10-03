@@ -1,0 +1,15 @@
+---
+info:
+  title: Vagrant Aws
+  description: Use Vagrant to manage your EC2 and VPC instances.
+  x-cortex-git:
+    github:
+      alias: r7org
+      repository: rapid7/vagrant-aws
+  x-cortex-tag: vagrant-aws
+  x-cortex-type: service
+  x-cortex-domain-parents:
+  - tag: metasploit
+openapi: 3.0.1
+servers:
+- url: "/"
